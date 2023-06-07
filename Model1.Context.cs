@@ -15,6 +15,15 @@ namespace HotelDE
     
     public partial class ContextDb : DbContext
     {
+        private static ContextDb Context;
+        public static ContextDb GetContext()
+        {
+            if (Context==null)
+            {
+                Context = new ContextDb();
+            }
+            return Context;
+        }
         public ContextDb()
             : base("name=ContextDb")
         {
